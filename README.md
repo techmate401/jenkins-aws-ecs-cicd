@@ -43,5 +43,5 @@ This repository contains the configuration and scripts for a Jenkins CI/CD pipel
 
 1. **Clone the Repository:**
    ```bash
-   git clone https://github.com/your-username/jenkins-aws-ecs-cicd.git
+   git clone https://github.com/techmate401/jenkins-aws-ecs-cicd.git
    cd jenkins-aws-ecs-cicd
