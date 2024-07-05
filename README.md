@@ -14,34 +14,40 @@ This repository contains the configuration and scripts for a Jenkins CI/CD pipel
 
 ### Prerequisites
 
-- **Jenkins:** Ensure Jenkins is installed and configured.
-- **AWS Account:** An active AWS account with ECS and ECR set up.
-- **Docker:** Docker installed on the Jenkins agent.
+1. **Jenkins:** Ensure Jenkins is installed and configured.
+2. **AWS Account:** An active AWS account with ECS and ECR set up.
+3. **Docker:** Docker installed on the Jenkins agent.
 
-### Jenkins Setup
+### Jenkins Configuration
 
 1. **Install Jenkins Plugins:**
-   - Install the following Jenkins plugins:
-     - `Pipeline`
-     - `Amazon ECR`
-     - `Git`
-     - `Credentials Binding`
+   - Go to `Manage Jenkins` > `Manage Plugins`.
+   - Install the following plugins:
+     - Pipeline
+     - Amazon ECR
+     - Git
 
 2. **Add AWS Credentials to Jenkins:**
-   - Go to **Jenkins Dashboard** > **Manage Jenkins** > **Manage Credentials**.
-   - Add AWS credentials:
-     - **Kind:** AWS Credentials
-     - **ID:** `aws-ecr-cred`
-     - **Access Key ID:** Your AWS Access Key ID
-     - **Secret Access Key:** Your AWS Secret Access Key
+   - Go to `Manage Jenkins` > `Manage Credentials` > `(global)` > `Add Credentials`.
+   - Select `AWS Credentials` from the Kind dropdown.
+   - Fill in your AWS Access Key ID and Secret Access Key.
+   - Click `OK`.
 
-3. **Create GitHub Repository:**
-   - Clone this repository or create a new one with a similar structure.
-   - Push your code to the GitHub repository.
+3. **Add AWS Credentials File to Jenkins:**
+   - Go to `Manage Jenkins` > `Manage Credentials` > `(global)` > `Add Credentials`.
+   - Select `Secret file` from the Kind dropdown.
+   - Upload your AWS credentials file (e.g., `~/.aws/credentials`).
+   - Click `OK`.
 
-### Pipeline Configuration
+4. **Create Jenkins Pipeline Job:**
+   - Create a new Pipeline job in Jenkins.
+   - In the Pipeline section, select `Pipeline script from SCM`.
+   - Configure your Git repository URL and branch.
+
+### Running the Pipeline
 
 1. **Clone the Repository:**
    ```bash
    git clone https://github.com/techmate401/jenkins-aws-ecs-cicd.git
    cd jenkins-aws-ecs-cicd
+
